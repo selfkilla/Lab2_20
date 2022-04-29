@@ -1,13 +1,14 @@
 #include "subject.h"
 #include <sys/stat.h>
+#include <algorithm>
 
 void Subject::Attach(FileObserver *observer){
     subs.push_back(observer);
 }
 
-//void Subject::Detach(FileObserver *observer){
-//    subs.erase(std::remove(subs.begin(), subs.end(), observer), subs.end());
-//}
+void Subject::Detach(FileObserver *observer){
+    subs.erase(std::remove(subs.begin(), subs.end(), observer), subs.end());
+}
 
 void Subject::Notify(bool isExist, long size){
     for(std::vector<FileObserver*>::const_iterator iterator = subs.begin();
