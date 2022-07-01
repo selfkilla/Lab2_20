@@ -6,9 +6,9 @@
 class FileState
 {
 public:
-    std::string name;
-    long size;
-    bool isExist;
+    std::string name; // имя файла
+    long size; // размер
+    bool isExist; // переменная, проверяющая, существует ли файл
     FileState(std::string fileName);
 };
 
